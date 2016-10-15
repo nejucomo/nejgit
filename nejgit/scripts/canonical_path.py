@@ -7,22 +7,7 @@ import urlparse
 def main(args=sys.argv[1:]):
     '''Parse a git url.'''
     opts = parse_args(args)
-    (name, base, netloc, urldir) = parse_urlish(opts.URL)
-
-    info = {
-        'NAME': name,
-        'BASE': base,
-        'NETLOC': netloc,
-        'URLDIR': urldir,
-    }
-
-    sys.stdout.write(
-        '\n'.join([
-            '{}={!r}'.format(k, v)
-            for (k, v)
-            in sorted(info.items())
-        ])
-    )
+    print parse_urlish(opts.URL)
 
 
 def parse_args(args):
@@ -51,11 +36,7 @@ def parse_urlish(urlish):
         )
 
     subdirs = path.rstrip('/').split('/')
-
-    name = subdirs[-1]
-    canonicalbase = os.path.join(netloc, *subdirs[:-1])
-
-    return (name, canonicalbase, netloc, path)
+    return os.path.join(netloc, *subdirs)
 
 
 def parse_url_query_params(query):
