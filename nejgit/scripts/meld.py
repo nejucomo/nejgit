@@ -3,10 +3,10 @@ import os
 
 
 def main(args=sys.argv[1:]):
-    args = [
+    myargs = [
         'git', 'difftool',
         '--dir-diff',
         '--tool=meld',
     ]
-    args += args
-    os.execvp(args[0], args)
+    myargs += args
+    os.execvp(myargs[0], myargs)
