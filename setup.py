@@ -9,7 +9,7 @@ PACKAGE = 'nejgit'
 setup(
     name=PACKAGE,
     description="A collection of nejucomo's git helper tools.",
-    version='0.2.dev0',
+    version='0.2',
     author='Nathan Wilcox',
     author_email='nejucomo@gmail.com',
     license='GPLv3',
